@@ -82,14 +82,13 @@ Node* insertnode(Node* head, int index, int data)
 
 Node* deletenode(Node* head, int index)
 {
-    Node* temp = head ;
-    int i = 0;
     if (index == 0)
     {
         head = head->next;
         return head;
     }
-    
+    Node* temp = head ;
+    int i = 0;
     while ( i < index -1)
     {
         temp = temp -> next;
