@@ -77,19 +77,23 @@ Node* insertnode(Node* head, int index, int data)
             std::cout << "index entered is not available in linked list\n";
         }
     }
+    return NULL; // this is the line which causes the warning
 }
 
 Node* deletenode(Node* head, int index)
 {
+    if (index == 0)
+    {
+        head = head->next;
+        return head;
+    }
     Node* temp = head ;
     int i = 0;
-    
     while ( i < index -1)
     {
         temp = temp -> next;
         i++;
     }
-    
     //we need the ptr of idx+1 element
     Node* b = temp->next->next;
     temp->next= b;
