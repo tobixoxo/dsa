@@ -83,6 +83,10 @@ Node* deletenode(Node* head, int index)
 {
     Node* temp = head ;
     int i = 0;
+    if (index == 0)
+    {
+        head = head->next;
+    }
     
     while ( i < index -1)
     {
