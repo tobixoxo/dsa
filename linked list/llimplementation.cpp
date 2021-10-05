@@ -87,6 +87,7 @@ Node* deletenode(Node* head, int index)
     if (index == 0)
     {
         head = head->next;
+        return head;
     }
     
     while ( i < index -1)
@@ -94,7 +95,6 @@ Node* deletenode(Node* head, int index)
         temp = temp -> next;
         i++;
     }
-    
     //we need the ptr of idx+1 element
     Node* b = temp->next->next;
     temp->next= b;
