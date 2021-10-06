@@ -82,12 +82,14 @@ Node* insertnode(Node* head, int index, int data)
 
 Node* deletenode(Node* head, int index)
 {
+    Node* temp = head;
     if (index == 0)
     {
         head = head->next;
+        delete temp;
         return head;
     }
-    Node* temp = head ;
+    
     int i = 0;
     while ( i < index -1)
     {
@@ -96,6 +98,7 @@ Node* deletenode(Node* head, int index)
     }
     //we need the ptr of idx+1 element
     Node* b = temp->next->next;
+    delete temp->next;
     temp->next= b;
     std::cout << "-----------------";
     return head;
