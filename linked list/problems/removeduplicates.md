@@ -8,4 +8,4 @@ Example 2:
 Output: [1,2,3]`  
   
     
-    [link for the question](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+[link for the question](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
