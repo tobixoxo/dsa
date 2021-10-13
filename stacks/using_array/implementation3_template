@@ -1,0 +1,102 @@
+#include <iostream>
+#include <climits>
+
+template <typename T>
+class stackusingarray
+{
+    T* data;          //dynamically created array ptr
+    T nextindex;
+    int capacity;
+
+    public:
+    stackusingarray()
+    {
+        data = new T[5];
+        nextindex = 0;
+        capacity = 5;
+    }
+    int size()
+    {
+        return nextindex;
+    }
+
+    T top()
+    {
+        return data[nextindex-1];
+    }
+
+    void push(T element)
+    {
+        if (capacity == nextindex) 
+        {
+            T* newarr;    
+            newarr = new T[2*capacity];
+            int i = 0;
+            while(i < size())
+            {
+                newarr[i] = data[i];
+                i++;
+            }
+            delete [] data;
+            data = newarr;
+        }
+        data[nextindex] = element;
+        nextindex ++;
+    }
+
+    T pop()
+    {
+        if (empty()) 
+        {
+            std::cout << "stack is empty\n";
+            return 0; 
+        }
+        nextindex --;
+        return data[nextindex];
+    }
+
+    bool empty()
+    {
+        return nextindex == 0;
+        /*
+                OR
+        if (nextindex == 0) return true;
+        else return false;
+        */
+    }
+    void deleteelement()
+    {
+        if (empty()) 
+        {
+            std::cout << "stack is empty\n";
+        }
+        nextindex --;
+    }
+    
+};
+
+int main()
+{
+    stackusingarray <char> stack;
+    stack.push('a');
+    stack.push('b');
+    stack.push('c');
+    stack.push('d');
+    stack.push('e');
+    stack.push('f');
+    stack.push('g');
+    
+    std::cout << stack.top() << std::endl;
+
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+    std::cout << stack.pop() << std::endl;
+
+
+    std::cout << stack.size() << std::endl;
+
+    std::cout << stack.empty() << std::endl;
+    
+}
